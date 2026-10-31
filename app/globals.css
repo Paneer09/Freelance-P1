@@ -5,12 +5,10 @@
   --foreground: #171717;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,3 +22,477 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Company name glow animation */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+
+  50% {
+    text-shadow:
+      0 0 16px rgba(17, 96, 224, 0.8),
+      0 0 16px rgba(25, 100, 222, 0.6);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.shape-scroll {
+  animation: shapeScroll 14s linear infinite;
+}
+
+/* Vertical shape carousel */
+
+.shape-scroll {
+  animation: shapeScroll 18s linear infinite;
+}
+
+@keyframes shapeScroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* Triangle */
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.review-flip {
+  animation: reviewPageFlip 0.8s ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes reviewPageFlip {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  45% {
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
+  }
+
+  55% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Hide horizontal scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   HERO SPACE
+========================================================= */
+
+.hero-space {
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   RANDOM STAR TWINKLE
+========================================================= */
+
+@keyframes hero-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: scale(1.5);
+  }
+}
+
+.hero-star {
+  animation-name: hero-star-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+
+/* =========================================================
+   MAIN NEON ICON
+========================================================= */
+
+@keyframes hero-neon-glow {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    filter:
+      drop-shadow(
+        0 0 5px rgba(147, 197, 253, 0.9)
+      )
+      drop-shadow(
+        0 0 15px rgba(59, 130, 246, 0.9)
+      )
+      drop-shadow(
+        0 0 35px rgba(29, 78, 216, 0.65)
+      );
+  }
+
+  50% {
+    opacity: 1;
+
+    filter:
+      drop-shadow(
+        0 0 8px rgba(191, 219, 254, 1)
+      )
+      drop-shadow(
+        0 0 22px rgba(59, 130, 246, 1)
+      )
+      drop-shadow(
+        0 0 48px rgba(29, 78, 216, 0.8)
+      );
+  }
+}
+
+.hero-neon-active {
+  animation:
+    hero-neon-glow
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ENERGY PARTICLE 1
+========================================================= */
+
+@keyframes hero-energy-one {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-22px, -9px);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   ENERGY PARTICLE 2
+========================================================= */
+
+@keyframes hero-energy-two {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(22px, 10px);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   ENERGY PARTICLE 3
+========================================================= */
+
+@keyframes hero-energy-three {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(14px, -18px);
+    opacity: 0;
+  }
+}
+
+.animate-energy-one {
+  animation:
+    hero-energy-one
+    1.4s
+    ease-out
+    infinite;
+}
+
+.animate-energy-two {
+  animation:
+    hero-energy-two
+    1.7s
+    ease-out
+    infinite;
+}
+
+.animate-energy-three {
+  animation:
+    hero-energy-three
+    1.5s
+    ease-out
+    infinite;
+}
+
+
+/* =========================================================
+   SMALL FOREGROUND STARS
+========================================================= */
+
+@keyframes hero-tiny-star {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes hero-tiny-star-delay {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.6);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.6);
+  }
+}
+
+.animate-tiny-star {
+  animation:
+    hero-tiny-star
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+.animate-tiny-star-delay {
+  animation:
+    hero-tiny-star-delay
+    3.6s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-star,
+  .hero-neon-active,
+  .animate-energy-one,
+  .animate-energy-two,
+  .animate-energy-three,
+  .animate-tiny-star,
+  .animate-tiny-star-delay {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   HERO STARFIELD
+========================================================= */
+
+@keyframes hero-page-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+}
+
+.hero-page-star {
+  animation-name: hero-page-star-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+
+/* Slow white glow around the logo */
+.logo-glow {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 8px;
+  animation: logoEdgeGlow 4s ease-in-out infinite;
+}
+
+@keyframes logoEdgeGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.10));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 2px rgba(255, 255, 255, 0.25))
+      drop-shadow(0 0 5px rgba(255, 255, 255, 0.12));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-glow {
+    animation: none;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+  }
+}
+
+
+/* =====================================
+   ADVIRAH LOGO BACKGROUND
+===================================== */
+
+.logo-glow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 16px;
+
+  background: linear-gradient(
+    135deg,
+    #32145a 0%,
+    #4c1d95 50%,
+    #241039 100%
+  );
+
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(147, 51, 234, 0.2),
+    inset 0 0 8px rgba(192, 132, 252, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+/* Logo Image */
+.logo-glow img {
+  display: block;
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Logo Hover */
+.logo-glow:hover {
+  border-color: #c084fc;
+
+  background: linear-gradient(
+    135deg,
+    #421b75 0%,
+    #6d28d9 50%,
+    #32145a 100%
+  );
+
+  box-shadow:
+    0 0 15px rgba(147, 51, 234, 0.4),
+    0 0 25px rgba(147, 51, 234, 0.15);
+}
+
+/* =====================================
+   SOCIAL ICONS
+===================================== */
+
+.header-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  color: #ffffff;
+
+  transition: all 0.3s ease;
+}
+
+/* Social Icon Hover */
+.header-social-icon:hover {
+  color: #ffffff;
+  background: #9333ea;
+
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.7),
+    0 0 22px rgba(147, 51, 234, 0.45);
+
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   EMAIL
+===================================== */
+
+.header-icon-link {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.header-icon-link:hover {
+  color: #c084fc;
+}
+
+/* =====================================
+   MOBILE LOGO
+===================================== */
+
+@media (max-width: 640px) {
+  .logo-glow {
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  .logo-glow img {
+    width: 140px;
+  }
+}
+
+
